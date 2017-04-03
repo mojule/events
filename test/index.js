@@ -21,11 +21,13 @@ describe( 'test mevents', () => {
 
     return api
   }
+
   let eventCount = 0
+
   const changeListener = ( value ) => {
     eventCount++
-    console.log( `change event listener called :${value}` )
   }
+
   it( 'generate events', () => {
     const tester = Tester()
     const changeListenerRemove = tester.on( 'change', changeListener )
@@ -34,5 +36,31 @@ describe( 'test mevents', () => {
     changeListenerRemove()
     tester.setValue( 3 )
     assert.equal( eventCount, 2 )
+  })
+
+  it( 'no listeners', () => {
+    const events = Events()
+
+    assert.doesNotThrow( () => events.emit( 'change', null ) )
+  })
+
+  it( 'multiple events', () => {
+    let x = 1
+    let y = 2
+
+    const events = Events()
+
+    events.on( 'change', value => {
+      x += value
+    })
+
+    events.on( 'change', value => {
+      y += value
+    })
+
+    events.emit( 'change', 3 )
+
+    assert.equal( x, 4 )
+    assert.equal( y, 5 )
   })
 })

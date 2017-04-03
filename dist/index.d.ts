@@ -1,5 +1,5 @@
-// Type definitions for mevents 0.1.x
-// Project: https://github.com/mojule/mevents
+// Type definitions for mevents 0.2.x
+// Project: https://github.com/mojule/events
 
 declare namespace MEvents {
 

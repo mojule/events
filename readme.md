@@ -1,9 +1,13 @@
-# mevents
+# events
 
-Dead simple event handling for mojule
+Dead simple event handling
+
+## Install
+
+`npm install @mojule/events`
 
 ```javascript
-const Events = require( 'mevents' )
+const Events = require( '@mojule/events' )
 
 // create a new instance
 const events = Events()
